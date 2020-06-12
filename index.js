@@ -15,28 +15,34 @@
 // Allow logging to console to notify user that they may miss rejections.
 /* eslint-disable no-console */
 
-if (typeof process !== 'undefined') {
-  process.on('unhandledRejection', (reason) => {
-    throw reason;
-  });
-} else if (typeof window !== 'undefined') {
-  // Note: This event may be emitted natively or by promise libraries
-  // (e.g. bluebird and when.js)
-  if (typeof window.addEventListener === 'function') {
-    window.addEventListener('unhandledrejection', (evt) => {
-      throw evt.detail.reason;
+exports.mochaHooks =
+function mochaHooks() {
+  if (typeof process !== 'undefined') {
+    process.on('unhandledRejection', (reason) => {
+      throw reason;
     });
-  } else {
-    const oldOHR = window.onunhandledrejection;
-    window.onunhandledrejection = function(evt, ...args) {
-      if (typeof oldOHR === 'function') { oldOHR.apply(this, args); }
-      throw evt.detail.reason;
-    };
+  } else if (typeof window !== 'undefined') {
+    // Note: This event may be emitted natively or by promise libraries
+    // (e.g. bluebird and when.js)
+    if (typeof window.addEventListener === 'function') {
+      window.addEventListener('unhandledrejection', (evt) => {
+        throw evt.detail.reason;
+      });
+    } else {
+      const oldOHR = window.onunhandledrejection;
+      window.onunhandledrejection = function(evt, ...args) {
+        if (typeof oldOHR === 'function') { oldOHR.apply(this, args); }
+        throw evt.detail.reason;
+      };
+    }
+  } else if (typeof console !== 'undefined'
+      && typeof (console.error || console.log) === 'function') {
+    (console.error || console.log)(
+      'mocha-ur2ue Warning: Unable to listen for unhandledrejection event.'
+      + '  Unhandled rejections will be ignored.',
+    );
   }
-} else if (typeof console !== 'undefined'
-    && typeof (console.error || console.log) === 'function') {
-  (console.error || console.log)(
-    'mocha-ur2ue Warning: Unable to listen for unhandledrejection event.'
-    + '  Unhandled rejections will be ignored.',
-  );
-}
+
+  // No need to run beforeAll/beforeEach.
+  return {};
+};
