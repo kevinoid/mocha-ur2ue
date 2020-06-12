@@ -1,6 +1,7 @@
 /**
  * Mocha helper to convert unhandled rejections into unhandled exceptions.
- * See: https://github.com/mochajs/mocha/issues/1926
+ * Workaround for https://github.com/mochajs/mocha/issues/2640
+ * Based on https://github.com/mochajs/mocha/issues/1926#issuecomment-180842722
  *
  * @copyright Copyright 2016 Kevin Locke <kevin@kevinlocke.name>
  * @license MIT
