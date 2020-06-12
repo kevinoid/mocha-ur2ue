@@ -23,10 +23,4 @@ install:
   - npm install
 
 script:
-  - npm run test-cov
-
-# Note:  Both codecov and coveralls detect branch/PR info from Travis CI
-# https://github.com/codecov/codecov-node/blob/v1.0.1/lib/services/travis.js
-# https://github.com/nickmerwin/node-coveralls/blob/2.11.5/lib/getOptions.js#L18
-after_success:
-  - npm run upload-cov
+  - npm run test
