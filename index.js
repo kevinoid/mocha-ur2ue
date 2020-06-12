@@ -19,8 +19,8 @@ if (typeof process !== 'undefined') {
     throw reason;
   });
 } else if (typeof window !== 'undefined') {
-  // 2016-02-01: No browsers support this natively, however bluebird, when.js,
-  // and probably other libraries do.
+  // Note: This event may be emitted natively or by promise libraries
+  // (e.g. bluebird and when.js)
   if (typeof window.addEventListener === 'function') {
     window.addEventListener('unhandledrejection', (evt) => {
       throw evt.detail.reason;
