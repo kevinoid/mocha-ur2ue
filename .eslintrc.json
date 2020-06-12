@@ -2,6 +2,13 @@
 {
   "extends": "@kevinoid/eslint-config/node.js",
 
+  // Disable all environments.
+  // Code may run in any environment and must test globals before use.
+  "env": {
+    "browser": false,
+    "node": false
+  },
+
   "rules": {
     // Allow requiring devDependencies for build and test
     "import/no-extraneous-dependencies": ["error", {
