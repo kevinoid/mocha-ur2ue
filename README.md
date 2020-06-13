@@ -3,7 +3,6 @@ mocha-ur2ue
 
 [![Build Status: Linux](https://img.shields.io/travis/kevinoid/mocha-ur2ue/master.svg?style=flat&label=build+on+linux)](https://travis-ci.org/kevinoid/mocha-ur2ue)
 [![Build Status: Windows](https://img.shields.io/appveyor/ci/kevinoid/mocha-ur2ue/master.svg?style=flat&label=build+on+windows)](https://ci.appveyor.com/project/kevinoid/mocha-ur2ue)
-[![Coverage](https://img.shields.io/codecov/c/github/kevinoid/mocha-ur2ue.svg?style=flat)](https://codecov.io/github/kevinoid/mocha-ur2ue?branch=master)
 [![Dependency Status](https://img.shields.io/david/kevinoid/mocha-ur2ue.svg?style=flat)](https://david-dm.org/kevinoid/mocha-ur2ue)
 [![Supported Node Version](https://img.shields.io/node/v/mocha-ur2ue.svg?style=flat)](https://www.npmjs.com/package/mocha-ur2ue)
 [![Version on NPM](https://img.shields.io/npm/v/mocha-ur2ue.svg?style=flat)](https://www.npmjs.com/package/mocha-ur2ue)
