@@ -1,6 +1,6 @@
 {
   "name": "mocha-ur2ue",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mocha root hook plugin to convert unhandled rejection events to unhandled exceptions so that they will cause test failures.",
   "keywords": [
     "mocha",
