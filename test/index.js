@@ -10,6 +10,7 @@ const { execFile } = require('child_process');
 const path = require('path');
 
 const hookPath = path.dirname(__dirname);
+const mochaPath = require.resolve('mocha/bin/mocha');
 const passTest = path.join(__dirname, 'fixtures', 'pass.js');
 const unhandledTest = path.join(__dirname, 'fixtures', 'unhandled.js');
 
@@ -17,9 +18,13 @@ function runMocha(...args) {
   // TODO [engine:node@>=12.6]: Use util.promisify(child_process.execFile)
   // https://github.com/nodejs/node/pull/28325 in nodejs/node@dd5e07f9b4
   return new Promise((resolve, reject) => {
+    // Note: Can't exec "mocha" on Windows without "shell: true", which causes
+    // perf and quoting issues, due to execFile not using %PATHEXT% which would
+    // include .cmd in search path, necessary to resolve mocha to mocha.cmd.
+    // See https://github.com/nodejs/node/issues/6671
     const proc = execFile(
-      'mocha',
-      ['-R', 'json', ...args],
+      process.execPath,
+      [mochaPath, '-R', 'json', ...args],
       (err, stdout, stderr) => {
         if (err) {
           err.stdout = stdout;
