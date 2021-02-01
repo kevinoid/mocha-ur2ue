@@ -24,6 +24,27 @@ npm install --save-dev mocha mocha-ur2ue
 mocha --require mocha-ur2ue --recursive tests
 ```
 
+
+## Node.js Alternatives
+
+On Node.js v10.17 and later, the behavior of this module can be accomplished
+by invoking Node.js with
+[`--unhandled-rejections=throw`](https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode):
+
+```sh
+node --unhandled-rejections=throw node_modules/mocha/bin/mocha --recursive test
+```
+
+or by setting `NODE_OPTIONS=--unhandled-rejections=throw` in the environment:
+
+```sh
+NODE_OPTIONS=--unhandled-rejections=throw mocha --recursive test
+```
+
+`--unhandled-rejections=throw` became the default in Node.js v15, making this
+module unnecessary with v15 and later.
+
+
 ## Installation
 
 [This package](https://www.npmjs.com/package/mocha-ur2ue) can be
