@@ -15,33 +15,43 @@
     "type": "git",
     "url": "https://github.com/kevinoid/mocha-ur2ue.git"
   },
+  "type": "commonjs",
+  "files": [
+    "*.js",
+    "bin/",
+    "lib/",
+    "!**/.*"
+  ],
   "main": "index.js",
+  "// Next major version will declare exports": {
+    ".": "./index.js"
+  },
   "//": "All scripts should run in POSIX sh and Windows cmd.exe",
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -u",
     "lint": "npm run lint-js",
     "lint-js": "eslint --report-unused-disable-directives . && echo ESLint passed.",
     "postpublish": "git push --follow-tags origin master && echo Remember to update GitHub Releases from CHANGELOG.md",
-    "preversion": "npm run test && depcheck && david && git-branch-is master && travis-status -b master -c -w -x && appveyor-status -b master -c -w -p kevinoid/mocha-ur2ue",
+    "preversion": "npm run test && depcheck && david && git-branch-is master && hub-ci-status -vv --wait",
     "test": "npm run lint && npm run test-unit",
     "test-unit": "mocha test/index.js",
     "version": "npm run changelog && echo && echo === Please edit CHANGELOG.md as desired, then exit === && echo && $npm_config_shell && git commit -m \"Update CHANGELOG.md for $npm_package_version\" CHANGELOG.md",
-    "version-deps": "npm install conventional-changelog-cli david depcheck git-branch-is travis-status"
+    "version-deps": "npm install conventional-changelog-cli david depcheck git-branch-is hub-ci-status"
   },
   "dependencies": {},
   "devDependencies": {
-    "@kevinoid/eslint-config": "^11.0.0",
+    "@kevinoid/eslint-config": "^14.0.0",
     "eslint": "^7.3.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsdoc": "^30.0.3",
+    "eslint-plugin-jsdoc": "^31.0.7",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-unicorn": "^21.0.0",
+    "eslint-plugin-unicorn": "^27.0.0",
     "mocha": "^8.0.1"
   },
   "engines": {
-    "node": ">=10.13",
+    "node": ">=10.17",
     "npm": ">=1.3.7"
   },
   "david": {
