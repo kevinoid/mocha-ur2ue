@@ -5,6 +5,7 @@
  *
  * @copyright Copyright 2016-2020 Kevin Locke <kevin@kevinlocke.name>
  * @license MIT
+ * @module mocha-ur2ue
  */
 
 'use strict';

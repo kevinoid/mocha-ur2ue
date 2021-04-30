@@ -1,7 +1,7 @@
 mocha-ur2ue
 ===========
 
-[![Build Status](https://img.shields.io/github/workflow/status/kevinoid/mocha-ur2ue/Node.js%20CI/master.svg?style=flat&label=build)](https://github.com/kevinoid/mocha-ur2ue/actions?query=branch%3Amaster)
+[![Build Status](https://img.shields.io/github/workflow/status/kevinoid/mocha-ur2ue/Node.js%20CI/main.svg?style=flat&label=build)](https://github.com/kevinoid/mocha-ur2ue/actions?query=branch%3Amain)
 [![Dependency Status](https://img.shields.io/david/kevinoid/mocha-ur2ue.svg?style=flat)](https://david-dm.org/kevinoid/mocha-ur2ue)
 [![Supported Node Version](https://img.shields.io/node/v/mocha-ur2ue.svg?style=flat)](https://www.npmjs.com/package/mocha-ur2ue)
 [![Version on NPM](https://img.shields.io/npm/v/mocha-ur2ue.svg?style=flat)](https://www.npmjs.com/package/mocha-ur2ue)
