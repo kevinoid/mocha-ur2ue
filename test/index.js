@@ -9,7 +9,7 @@ const assert = require('assert');
 const { execFile } = require('child_process');
 const path = require('path');
 
-const hookPath = path.dirname(__dirname);
+const hookPath = path.join(__dirname, '..', 'index.js');
 const mochaPath = require.resolve('mocha/bin/mocha');
 const passTest = path.join(__dirname, 'fixtures', 'pass.js');
 const unhandledTest = path.join(__dirname, 'fixtures', 'unhandled.js');
