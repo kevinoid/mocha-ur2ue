@@ -5,10 +5,10 @@
 
 'use strict';
 
-const assert = require('assert');
-const { execFile } = require('child_process');
-const path = require('path');
-const { promisify } = require('util');
+const assert = require('node:assert');
+const { execFile } = require('node:child_process');
+const path = require('node:path');
+const { promisify } = require('node:util');
 
 const hookPath = path.join(__dirname, '..', 'index.js');
 const mochaPath = require.resolve('mocha/bin/mocha');
