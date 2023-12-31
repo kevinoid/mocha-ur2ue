@@ -23,7 +23,7 @@ function runMocha(...args) {
   // include .cmd in search path, necessary to resolve mocha to mocha.cmd.
   // See https://github.com/nodejs/node/issues/6671
   const promise = execFileP(
-    process.execPath,
+    process.execPath, // eslint-disable-line no-undef
     [mochaPath, '-R', 'json', ...args],
   );
   promise.child.stdin.end();
