@@ -22,16 +22,16 @@ function mochaHooks() {
     process.on('unhandledRejection', (reason) => {
       throw reason;
     });
-  } else if (typeof window !== 'undefined') {
+  } else if (typeof globalThis !== 'undefined') {
     // Note: This event may be emitted natively or by promise libraries
     // (e.g. bluebird and when.js)
     if (typeof window.addEventListener === 'function') {
-      window.addEventListener('unhandledrejection', (evt) => {
+      globalThis.addEventListener('unhandledrejection', (evt) => {
         throw evt.detail.reason;
       });
     } else {
-      const oldOHR = window.onunhandledrejection;
-      window.onunhandledrejection = function(evt, ...args) {
+      const oldOHR = globalThis.onunhandledrejection;
+      globalThis.onunhandledrejection = function(evt, ...args) {
         if (typeof oldOHR === 'function') { oldOHR.apply(this, args); }
         throw evt.detail.reason;
       };
