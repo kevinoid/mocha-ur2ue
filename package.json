@@ -32,7 +32,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -u",
     "lint": "npm run lint-js",
     "lint-js": "eslint --report-unused-disable-directives . && echo ESLint passed.",
-    "postpublish": "git push --follow-tags origin main && echo Remember to update GitHub Releases from CHANGELOG.md",
+    "release": "git push --follow-tags origin main && echo \"Create a GitHub Release (from CHANGELOG.md) to run publish workflow.\"",
     "preversion": "npm run test && depcheck --ignores=\"eslint-*\" && david && git-branch-is main && hub-ci-status -vv --wait",
     "test": "npm run lint && npm run test-unit",
     "test-unit": "mocha test/index.js",
