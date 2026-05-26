@@ -5,8 +5,6 @@
 
 'use strict';
 
-/* global setTimeout:false */
-
 it('passes synchronously', () => {});
 it('passes asynchronously', (cb) => setTimeout(cb, 0));
 it('passes resolved Promise', () => Promise.resolve());

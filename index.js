@@ -11,7 +11,8 @@
 'use strict';
 
 // Allow using console, process, and window global variables, when present
-/* global console: false, process:false, window:false */
+// Mocha defines exports for hooks.
+/* global console:false, exports:false, process:false, window:false */
 
 // Allow logging to console to notify user that they may miss rejections.
 /* eslint-disable no-console */
