@@ -51,6 +51,10 @@ jobs:
         check-latest: true
     - name: Display Node.js version
       run: node --version
+    - name: Harden npm
+      run: >-
+        npm config set allow-git=none &&
+        npm config set ignore-scripts=true
     - name: Install dependencies
       run: npm install --strict-peer-deps
     - name: Lint
@@ -96,6 +100,10 @@ jobs:
         check-latest: ${{ matrix.node == '*' }}
     - name: Display Node.js version
       run: node --version
+    - name: Harden npm
+      run: >-
+        npm config set allow-git=none &&
+        npm config set ignore-scripts=true
     - name: Install dependencies
       run: npm install --strict-peer-deps
     - name: Run tests
