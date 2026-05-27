@@ -38,7 +38,7 @@ function mochaHooks() {
       };
     }
   } else if (typeof console !== 'undefined'
-      && typeof (console.error || console.log) === 'function') {
+    && typeof (console.error || console.log) === 'function') {
     (console.error || console.log)(
       'mocha-ur2ue Warning: Unable to listen for unhandledrejection event.'
       + '  Unhandled rejections will be ignored.',
