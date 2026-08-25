@@ -57,12 +57,12 @@ jobs:
         npm config set ignore-scripts=true
     - name: Install dependencies
       run: npm install --strict-peer-deps
-    - name: Check for deprecated dependencies
-      run: npm run check-deps
     - name: Lint
       run: npm run lint
     - name: Run tests
       run: npm run test-unit
+    - name: Check for deprecated dependencies
+      run: npm run check-deps
 
   test-secondary:
     # Only test secondary platforms if primary test platform passed
