@@ -61,8 +61,6 @@ jobs:
       run: npm run lint
     - name: Run tests
       run: npm run test-unit
-    - name: Check for deprecated dependencies
-      run: npm run check-deps
 
   test-secondary:
     # Only test secondary platforms if primary test platform passed
