@@ -30,10 +30,6 @@ function runMocha(...args) {
   return promise;
 }
 
-function badPass(result) {
-  assert.fail('Test run did not fail as expected.');
-}
-
 function defineTests(...args) {
   it(
     'tests with unhandled rejections pass without hook',
@@ -45,20 +41,20 @@ function defineTests(...args) {
     () => runMocha(...args, '--require', hookPath, passTest),
   );
 
-  it(
-    'tests with unhandled rejections fail with hook',
-    () => runMocha(...args, '--require', hookPath, unhandledTest)
-      .then(
-        badPass,
-        (errMocha) => {
-          const report = JSON.parse(errMocha.stdout);
-          const { err } = report.failures[0];
-          assert.strictEqual(err.message, 'banana');
-          assert.strictEqual(err.name, 'FruitError');
-          assert.strictEqual(err.uncaught, true);
-        },
-      ),
-  );
+  it('tests with unhandled rejections fail with hook', async () => {
+    try {
+      await runMocha(...args, '--require', hookPath, unhandledTest);
+    } catch (errMocha) {
+      const report = JSON.parse(errMocha.stdout);
+      const { err } = report.failures[0];
+      assert.strictEqual(err.message, 'banana');
+      assert.strictEqual(err.name, 'FruitError');
+      assert.strictEqual(err.uncaught, true);
+      return;
+    }
+
+    assert.fail('Expected runMocha() to throw an exception.');
+  });
 }
 
 describe('mocha', () => {
