@@ -32,7 +32,9 @@ function mochaHooks() {
       });
     } else {
       const oldOHR = globalThis.onunhandledrejection;
+      // eslint-disable-next-line unicorn/no-global-object-property-assignment
       globalThis.onunhandledrejection = function(evt, ...args) {
+        // eslint-disable-next-line unicorn/no-this-outside-of-class
         if (typeof oldOHR === 'function') { oldOHR.apply(this, args); }
         throw evt.detail.reason;
       };

@@ -8,6 +8,7 @@
 it('causes unhandled rejection', () => {
   // Reject with a recognizable Error name and message to find in output
   const err = new Error('banana');
+  // eslint-disable-next-line unicorn/no-error-property-assignment
   err.name = 'FruitError';
   // eslint-disable-next-line promise/catch-or-return
   Promise.reject(err);
